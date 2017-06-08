@@ -10,11 +10,15 @@ traducoes = []
 dicionario = {}
 
 def menu
+  puts
+  puts '#' * 20
   puts 'Escolha uma opção:'
   puts '1 - Adicionar tradução'
   puts '2 - Ver todas as traduções'
   puts '3 - Buscar uma tradução'
   puts '0 - sair'
+  puts '#' * 20
+  puts
 end
 
 #Fluxo da opção 1
