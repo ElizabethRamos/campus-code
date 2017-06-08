@@ -7,6 +7,8 @@
 puts 'Bem-vindo ao App de Traduções'
 
 traducoes = []
+dicionario = {}
+
 def menu
   puts 'Escolha uma opção:'
   puts '1 - Adicionar tradução'
@@ -28,16 +30,29 @@ while opcao_escolhida != 0 do
     #Escreva a expressão em PT-BR 
     puts "Escreva a expressão em Portugues"
     texto_portugues = gets.chomp
+   
 
     #Escreva a expressão em EN
     puts "Escreva a expressão em ingles"
     texto_ingles = gets.chomp
 
     traducoes << "Tradução de" + texto_portugues + "é" + texto_ingles
+    dicionario[texto_portugues] = texto_ingles
     puts 'Obrigada por inserir mais uma tradução :)'  
 
   elsif (opcao_escolhida == 2)
     puts traducoes
+
+  elsif (opcao_escolhida == 3)
+    puts 'Digite a palavra em portugues'
+    palavra = gets.chomp
+    # se a palavra existir no dicionario, imprima a traducao
+    if dicionario[palavra] 
+      puts "A tradução de #{palavra} é #{dicionario[palavra]}"
+    # se a palavra nao existir no dicionario, avise ao usuario
+    else
+      puts "me solte"
+    end
   end
 
   menu
