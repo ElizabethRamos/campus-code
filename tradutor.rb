@@ -32,15 +32,15 @@ while opcao_escolhida != 0 do
   #Tomada de decisoes 
   if (opcao_escolhida == 1)
     #Escreva a expressão em PT-BR 
-    puts "Escreva a expressão em Portugues"
+    puts "Escreva a expressão em Portugues: "
     texto_portugues = gets.chomp
    
 
     #Escreva a expressão em EN
-    puts "Escreva a expressão em ingles"
+    puts "Escreva a expressão em Ingles: "
     texto_ingles = gets.chomp
 
-    traducoes << "Tradução de" + texto_portugues + "é" + texto_ingles
+    traducoes << "A tradução de " + texto_portugues + " é " + texto_ingles
     dicionario[texto_portugues] = texto_ingles
     puts 'Obrigada por inserir mais uma tradução :)'  
 
@@ -48,14 +48,16 @@ while opcao_escolhida != 0 do
     puts traducoes
 
   elsif (opcao_escolhida == 3)
-    puts 'Digite a palavra em portugues'
+    puts "Digite uma palavra em português: "
     palavra = gets.chomp
+
+    traducao = dicionario[palavra]
     # se a palavra existir no dicionario, imprima a traducao
-    if dicionario[palavra] 
-      puts "A tradução de #{palavra} é #{dicionario[palavra]}"
+    if traducao
+      puts "A tradução de #{palavra} é #{traducao}"
     # se a palavra nao existir no dicionario, avise ao usuario
     else
-      puts "me solte"
+      puts "Desculpe, :( Esta palavra ainda não foi traduzida"
     end
   end
 
@@ -65,6 +67,4 @@ while opcao_escolhida != 0 do
 end
 
 puts "Adeus..."
-
-
 
