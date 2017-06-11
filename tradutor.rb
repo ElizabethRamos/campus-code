@@ -52,22 +52,24 @@ while opcao_escolhida != 0 do
     puts 'Informe a palavra que deseja procurar: '
     texto_busca = recebe_texto()
 
-    # traducoes_encontradas = [] #o proprio select já cria o array
+    traducoes_encontradas = traducoes.select do |traducao|
+       traducao.upcase.include? texto_busca.upcase
+     end
+
+        puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
+        puts traducoes_encontradas
+
+  elsif (opcao_escolhida == 4)
+    puts 'Informe a palavra que deseja procurar: '
+    texto_busca = recebe_texto()
 
     traducoes_encontradas = traducoes.select do |traducao|
       traducao.upcase.include? texto_busca.upcase
-    end
-
-  #  traducoes.each do |traducao|
-  #    if(traducao.include? texto_busca)
-  #      traducoes_encontradas << traducao
-  #    end
-  #  end
+      end
 
       puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
       puts traducoes_encontradas
-
-  end # opção_escolhida ==3
+  end
 
   menu()
   opcao_escolhida = gets.to_i
