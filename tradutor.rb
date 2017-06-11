@@ -14,7 +14,8 @@ def menu()
   puts 'Escolha uma opção:'
   puts '1 - Adicionar tradução'
   puts '2 - Ver todas as traduções'
-  puts '3 - Buscar uma tradução'
+  puts '3 - Buscar uma tradução para Português'
+  puts '4 - Buscar uma tradução para Inglês'
   puts '0 - sair'
   puts '#' * 20
   puts
@@ -41,7 +42,8 @@ while opcao_escolhida != 0 do
     puts "Escreva a expressão em Ingles: "
     texto_ingles = recebe_texto()
 
-    traducoes << "A tradução de " + texto_portugues + " é " + texto_ingles
+    traducao = { portugues: texto_portugues, ingles: texto_ingles}
+    traducoes << traducao
 
     puts 'Obrigada por inserir mais uma tradução :)'
 
@@ -49,26 +51,32 @@ while opcao_escolhida != 0 do
     puts traducoes
 
   elsif (opcao_escolhida == 3)
+# traducao de ingles para portugues
+
     puts 'Informe a palavra que deseja procurar: '
     texto_busca = recebe_texto()
 
     traducoes_encontradas = traducoes.select do |traducao|
-       traducao.upcase.include? texto_busca.upcase
-     end
+      #puts "#{traducao[:portugues].upcase} -> #{texto_busca.upcase}"
+      traducao[:ingles].upcase.include? texto_busca.upcase
+    end
 
-        puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
-        puts traducoes_encontradas
+    puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
+    puts traducoes_encontradas
 
   elsif (opcao_escolhida == 4)
+#traducao de portugues para ingles
+
     puts 'Informe a palavra que deseja procurar: '
     texto_busca = recebe_texto()
 
     traducoes_encontradas = traducoes.select do |traducao|
-      traducao.upcase.include? texto_busca.upcase
-      end
+      #puts "#{traducao[:ingles].upcase} -> #{texto_busca.upcase}"
+      traducao[:portugues].upcase.include? texto_busca.upcase
+    end
 
-      puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
-      puts traducoes_encontradas
+    puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
+    puts traducoes_encontradas
   end
 
   menu()
