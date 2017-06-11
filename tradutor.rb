@@ -46,6 +46,19 @@ def mostrar_traducoes(traducoes)
   end
 end
 
+def achar_traducoes(traducoes, lingua)
+  puts "Informe a palavra que deseja procurar em #{lingua}: "
+  texto_busca = recebe_texto()
+
+  traducoes_encontradas = traducoes.select do |traducao|
+    traducao[lingua].upcase.include? texto_busca.upcase
+  end
+
+  puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
+
+  mostrar_traducoes(traducoes_encontradas)
+end
+
 menu()
 
 opcao_escolhida = gets.to_i
@@ -60,34 +73,12 @@ while opcao_escolhida != 0 do
     mostrar_traducoes(traducoes)
 
   elsif (opcao_escolhida == 3)
-
     # traducao de ingles para portugues
-    puts 'Informe a palavra que deseja procurar: '
-    texto_busca = recebe_texto()
-
-    traducoes_encontradas = traducoes.select do |traducao|
-      #puts "#{traducao[:portugues].upcase} -> #{texto_busca.upcase}"
-      traducao[:ingles].upcase.include? texto_busca.upcase
-    end
-
-    puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
-
-    mostrar_traducoes(traducoes_encontradas)
+    achar_traducoes(traducoes, :ingles)
 
   elsif (opcao_escolhida == 4)
     # traducao de portugues para ingles
-
-    puts 'Informe a palavra que deseja procurar: '
-    texto_busca = recebe_texto()
-
-    traducoes_encontradas = traducoes.select do |traducao|
-      #puts "#{traducao[:ingles].upcase} -> #{texto_busca.upcase}"
-      traducao[:portugues].upcase.include? texto_busca.upcase
-    end
-
-    puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
-
-    mostrar_traducoes(traducoes_encontradas)
+    achar_traducoes(traducoes, :portugues)
   end
 
   menu()
