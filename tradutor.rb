@@ -25,6 +25,21 @@ def recebe_texto()
   gets.chomp
 end
 
+def adicionar_traducao(traducoes)
+  #Escreva a expressão em PT-BR
+  puts "Escreva a expressão em Portugues: "
+  texto_portugues = recebe_texto()
+
+  #Escreva a expressão em EN
+  puts "Escreva a expressão em Ingles: "
+  texto_ingles = recebe_texto()
+
+  traducao = { portugues: texto_portugues, ingles: texto_ingles}
+  traducoes << traducao
+
+  puts 'Obrigada por inserir mais uma tradução :)'
+end
+
 menu()
 
 opcao_escolhida = gets.to_i
@@ -33,20 +48,7 @@ while opcao_escolhida != 0 do
 
   #Tomada de decisoes
   if (opcao_escolhida == 1)
-    #Escreva a expressão em PT-BR
-    puts "Escreva a expressão em Portugues: "
-    texto_portugues = recebe_texto()
-
-
-    #Escreva a expressão em EN
-    puts "Escreva a expressão em Ingles: "
-    texto_ingles = recebe_texto()
-
-    traducao = { portugues: texto_portugues, ingles: texto_ingles}
-    traducoes << traducao
-
-    puts 'Obrigada por inserir mais uma tradução :)'
-
+    adicionar_traducao(traducoes)
   elsif (opcao_escolhida == 2)
 
     traducoes.each do |traducao|
@@ -79,7 +81,7 @@ while opcao_escolhida != 0 do
       traducao[:portugues].upcase.include? texto_busca.upcase
     end
     puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
-    
+
     traducoes_encontradas.each do |traducao|
       puts "A tradução de #{traducao[:portugues]} é #{traducao[:ingles]}"
     end
