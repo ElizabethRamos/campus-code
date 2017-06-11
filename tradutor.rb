@@ -40,6 +40,11 @@ def adicionar_traducao(traducoes)
   puts 'Obrigada por inserir mais uma tradução :)'
 end
 
+def mostrar_traducoes(traducoes)
+  traducoes.each do |traducao|
+     puts "A tradução de #{traducao[:portugues]} é #{traducao[:ingles]}"
+  end
+end
 menu()
 
 opcao_escolhida = gets.to_i
@@ -49,12 +54,12 @@ while opcao_escolhida != 0 do
   #Tomada de decisoes
   if (opcao_escolhida == 1)
     adicionar_traducao(traducoes)
-  elsif (opcao_escolhida == 2)
 
-    traducoes.each do |traducao|
-       puts "A tradução de #{traducao[:portugues]} é #{traducao[:ingles]}"
-    end
+  elsif (opcao_escolhida == 2)
+    mostrar_traducoes(traducoes)
+
   elsif (opcao_escolhida == 3)
+
     # traducao de ingles para portugues
     puts 'Informe a palavra que deseja procurar: '
     texto_busca = recebe_texto()
