@@ -40,8 +40,8 @@ def adicionar_traducao(traducoes)
   puts 'Obrigada por inserir mais uma tradução :)'
 end
 
-def mostrar_traducoes(traducoes)
-  traducoes.each do |traducao|
+def mostrar_traducoes(lista)
+  lista.each do |traducao|
      puts "A tradução de #{traducao[:portugues]} é #{traducao[:ingles]}"
   end
 end
