@@ -52,7 +52,7 @@ while opcao_escolhida != 0 do
     puts 'Informe a palavra que deseja procurar: '
     texto_busca = recebe_texto()
 
-    traducoes_encontradas = []
+    # traducoes_encontradas = [] #o proprio select já cria o array
 
     traducoes_encontradas = traducoes.select do |traducao|
       traducao.include? texto_busca
