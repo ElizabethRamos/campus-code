@@ -63,7 +63,10 @@ while opcao_escolhida != 0 do
      end
 
      puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
-     puts traducoes_encontradas
+     #puts traducoes_encontradas
+     traducoes_encontradas.each do |traducao|
+        puts "A tradução de #{traducao[:portugues]} é #{traducao[:ingles]}"
+     end
      #imprimir de forma bonita
 
   elsif (opcao_escolhida == 4)
@@ -77,7 +80,10 @@ while opcao_escolhida != 0 do
       traducao[:portugues].upcase.include? texto_busca.upcase
     end
     puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
-    puts traducoes_encontradas
+    #puts traducoes_encontradas
+    traducoes_encontradas.each do |traducao|
+       puts "A tradução de #{traducao[:portugues]} é #{traducao[:ingles]}"
+    end
   end
   menu()
   opcao_escolhida = gets.to_i
