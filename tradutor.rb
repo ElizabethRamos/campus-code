@@ -60,14 +60,13 @@ while opcao_escolhida != 0 do
     traducoes_encontradas = traducoes.select do |traducao|
       #puts "#{traducao[:portugues].upcase} -> #{texto_busca.upcase}"
       traducao[:ingles].upcase.include? texto_busca.upcase
-     end
+    end
 
-     puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
-     #puts traducoes_encontradas
-     traducoes_encontradas.each do |traducao|
-        puts "A tradução de #{traducao[:portugues]} é #{traducao[:ingles]}"
-     end
-     #imprimir de forma bonita
+    puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
+
+    traducoes_encontradas.each do |traducao|
+      puts "A tradução de #{traducao[:portugues]} é #{traducao[:ingles]}"
+    end
 
   elsif (opcao_escolhida == 4)
     # traducao de portugues para ingles
@@ -80,10 +79,11 @@ while opcao_escolhida != 0 do
       traducao[:portugues].upcase.include? texto_busca.upcase
     end
     puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
-    #puts traducoes_encontradas
+    
     traducoes_encontradas.each do |traducao|
-       puts "A tradução de #{traducao[:portugues]} é #{traducao[:ingles]}"
+      puts "A tradução de #{traducao[:portugues]} é #{traducao[:ingles]}"
     end
+
   end
   menu()
   opcao_escolhida = gets.to_i
