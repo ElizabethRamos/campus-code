@@ -7,7 +7,6 @@
 puts 'Bem-vindo ao App de Traduções'
 
 traducoes = []
-dicionario = {}
 
 def menu()
   puts
