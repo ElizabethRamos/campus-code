@@ -1,6 +1,6 @@
 #Traducao de expressoes do PT-BR para EN
 
-#Menu 
+#Menu
 #1- adicionar uma tradução
 #2- ver todas as traducoes
 
@@ -9,7 +9,7 @@ puts 'Bem-vindo ao App de Traduções'
 traducoes = []
 dicionario = {}
 
-def menu
+def menu()
   puts
   puts '#' * 20
   puts 'Escolha uma opção:'
@@ -21,50 +21,58 @@ def menu
   puts
 end
 
-#Fluxo da opção 1
+def recebe_texto()
+  gets.chomp
+end
 
-#Obrigada por inserir mais uma tradução :)
-menu
+menu()
+
 opcao_escolhida = gets.to_i
 
-while opcao_escolhida != 0 do	
+while opcao_escolhida != 0 do
 
-  #Tomada de decisoes 
+  #Tomada de decisoes
   if (opcao_escolhida == 1)
-    #Escreva a expressão em PT-BR 
+    #Escreva a expressão em PT-BR
     puts "Escreva a expressão em Portugues: "
-    texto_portugues = gets.chomp
-   
+    texto_portugues = recebe_texto()
+
 
     #Escreva a expressão em EN
     puts "Escreva a expressão em Ingles: "
-    texto_ingles = gets.chomp
+    texto_ingles = recebe_texto()
 
     traducoes << "A tradução de " + texto_portugues + " é " + texto_ingles
-    dicionario[texto_portugues] = texto_ingles
-    puts 'Obrigada por inserir mais uma tradução :)'  
+
+    puts 'Obrigada por inserir mais uma tradução :)'
 
   elsif (opcao_escolhida == 2)
     puts traducoes
 
   elsif (opcao_escolhida == 3)
-    puts "Digite uma palavra em português: "
-    palavra = gets.chomp
+    puts 'Informe a palavra que deseja procurar: '
+    texto_busca = recebe_texto()
 
-    traducao = dicionario[palavra]
-    # se a palavra existir no dicionario, imprima a traducao
-    if traducao
-      puts "A tradução de #{palavra} é #{traducao}"
-    # se a palavra nao existir no dicionario, avise ao usuario
-    else
-      puts "Desculpe, :( Esta palavra ainda não foi traduzida"
+    traducoes_encontradas = []
+
+    traducoes_encontradas = traducoes.select do |traducao|
+      traducao.include? texto_busca
     end
-  end
 
-  menu
+  #  traducoes.each do |traducao|
+  #    if(traducao.include? texto_busca)
+  #      traducoes_encontradas << traducao
+  #    end
+  #  end
+
+    if traducoes_encontradas.length == 0
+      puts "Nenhuma tradução encontrada"
+    else
+      puts traducoes_encontradas
+    end
+
+  end # opção_escolhida ==3
+  menu()
   opcao_escolhida = gets.to_i
-
-end
-
-puts "Adeus..."
-
+end # while
+puts 'Até breve!'
