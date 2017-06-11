@@ -45,6 +45,7 @@ def mostrar_traducoes(traducoes)
      puts "A tradução de #{traducao[:portugues]} é #{traducao[:ingles]}"
   end
 end
+
 menu()
 
 opcao_escolhida = gets.to_i
@@ -71,9 +72,7 @@ while opcao_escolhida != 0 do
 
     puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
 
-    traducoes_encontradas.each do |traducao|
-      puts "A tradução de #{traducao[:portugues]} é #{traducao[:ingles]}"
-    end
+    mostrar_traducoes(traducoes_encontradas)
 
   elsif (opcao_escolhida == 4)
     # traducao de portugues para ingles
@@ -85,13 +84,12 @@ while opcao_escolhida != 0 do
       #puts "#{traducao[:ingles].upcase} -> #{texto_busca.upcase}"
       traducao[:portugues].upcase.include? texto_busca.upcase
     end
+
     puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
 
-    traducoes_encontradas.each do |traducao|
-      puts "A tradução de #{traducao[:portugues]} é #{traducao[:ingles]}"
-    end
-
+    mostrar_traducoes(traducoes_encontradas)
   end
+
   menu()
   opcao_escolhida = gets.to_i
 end # while
