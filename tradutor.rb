@@ -64,13 +64,11 @@ while opcao_escolhida != 0 do
   #    end
   #  end
 
-    if traducoes_encontradas.length == 0
-      puts "Nenhuma tradução encontrada"
-    else
+      puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
       puts traducoes_encontradas
-    end
 
   end # opção_escolhida ==3
+
   menu()
   opcao_escolhida = gets.to_i
 end # while
