@@ -55,7 +55,7 @@ while opcao_escolhida != 0 do
     # traducoes_encontradas = [] #o proprio select já cria o array
 
     traducoes_encontradas = traducoes.select do |traducao|
-      traducao.include? texto_busca
+      traducao.upcase.include? texto_busca.upcase
     end
 
   #  traducoes.each do |traducao|
