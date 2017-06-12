@@ -1,8 +1,4 @@
-#Traducao de expressoes do PT-BR para EN
-
-#Menu
-#1- adicionar uma tradução
-#2- ver todas as traducoes
+require_relative('traducao')
 
 puts 'Bem-vindo ao App de Traduções'
 
@@ -34,15 +30,16 @@ def adicionar_traducao(traducoes)
   puts "Escreva a expressão em Ingles: "
   texto_ingles = recebe_texto()
 
-  traducao = { portugues: texto_portugues, ingles: texto_ingles}
+  #traducao = { portugues: texto_portugues, ingles: texto_ingles}
+  traducao = Traducao.new(texto_portugues, texto_ingles)
   traducoes << traducao
 
   puts 'Obrigada por inserir mais uma tradução :)'
 end
 
-def mostrar_traducoes(lista)
-  lista.each do |traducao|
-     puts "A tradução de #{traducao[:portugues]} é #{traducao[:ingles]}"
+def mostrar_traducoes(traducoes)
+  traducoes.each do |traducao|
+    traducao.imprime_traducao
   end
 end
 
@@ -51,7 +48,7 @@ def achar_traducoes(traducoes, lingua)
   texto_busca = recebe_texto()
 
   traducoes_encontradas = traducoes.select do |traducao|
-    traducao[lingua].upcase.include? texto_busca.upcase
+    traducao.busca_texto(lingua, texto_busca)
   end
 
   puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
