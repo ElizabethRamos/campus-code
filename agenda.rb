@@ -1,16 +1,10 @@
+require_relative('contato')
+
 puts 'Bem vindo a agenda de contatos'
 
 contatos = [
-  {
-    :nome => "Zibryulos",
-    :telefone => "98765432",
-    :email => "zibryulos@example.com",
-  },
-  {
-    :nome => "Hamulas",
-    :telefone => "12345678",
-    :email => "hamulas@example.com",
-  }
+  Contato.new("Zibryulos", "98765432","zibryulos@example.com"),
+  Contato.new("Hamulas", "12345678","hamulas@example.com"),
 ]
 
 def menu()
@@ -30,20 +24,16 @@ def recebe_texto()
     gets.chomp
 end
 
-def mostrar_contato(contato)
-  puts "Nome #{contato[:nome]}\ttelefone #{contato[:telefone]}\temail: #{contato[:email]}"
-end
-
 def listar_contatos(contatos)
   contatos.each do |contato|
-    mostrar_contato(contato)
+    contato.mostrar
   end
 end
 
 def achar_contato_por_nome(contatos, nome)
   # procurar os contatos, filtrando por nome -> select
   contatos_encontrados = contatos.select do |contato|
-    contato[:nome].upcase.include? nome.upcase
+    contato.tem_esse_nome?(nome)
   end
   listar_contatos contatos_encontrados
   puts "Nenhum contato encontrado" if contatos_encontrados.empty?
@@ -52,7 +42,7 @@ end
 def achar_contato_por_telefone(contatos, telefone)
   # procurar os contatos, filtrando por nome -> select
   contatos_encontrados = contatos.select do |contato|
-    contato[:telefone].upcase.include? telefone.upcase
+    contato.tem_esse_telefone?(telefone)
   end
   listar_contatos contatos_encontrados
   puts "Nenhum contato encontrado" if contatos_encontrados.empty?
@@ -61,7 +51,7 @@ end
 def achar_contato_por_email(contatos, email)
   # procurar os contatos, filtrando por nome -> select
   contatos_encontrados = contatos.select do |contato|
-    contato[:email].upcase.include? email.upcase
+    contato.tem_esse_email?(email)
   end
 
   listar_contatos contatos_encontrados
@@ -78,12 +68,7 @@ def adicionar_contato(contatos)
   puts "Escreva o email do contato:"
   email = recebe_texto
 
-  contato = {
-    :nome =>  nome,
-    :telefone => telefone,
-    :email => email
-  }
-
+  contato = Contato.new(nome, telefone,  email)
   contatos << contato
 end
 
