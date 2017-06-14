@@ -1,4 +1,15 @@
 require_relative('traducao')
+require_relative('foto_traduzida')
+
+#constantes
+
+ADICIONAR_TRADUCAO = 1
+VER_TODAS_AS_TRADUCOES = 2
+BUSCAR_TRADUCAO_PT = 3
+BUSCAR_TRADUCAO_EN = 4
+INSERIR_FOTO = 5
+SAIR = 0
+
 
 puts 'Bem-vindo ao App de Traduções'
 
@@ -8,11 +19,12 @@ def menu()
   puts
   puts '#' * 20
   puts 'Escolha uma opção:'
-  puts '1 - Adicionar tradução'
-  puts '2 - Ver todas as traduções'
-  puts '3 - Buscar uma tradução para Português'
-  puts '4 - Buscar uma tradução para Inglês'
-  puts '0 - sair'
+  puts "#{ADICIONAR_TRADUCAO} - Adicionar tradução"
+  puts "#{VER_TODAS_AS_TRADUCOES} - Ver todas as traduções"
+  puts "#{BUSCAR_TRADUCAO_PT} - Buscar uma tradução para Português"
+  puts "#{BUSCAR_TRADUCAO_EN} - Buscar uma tradução para Inglês "
+  puts "#{INSERIR_FOTO} - Insira uma foto"
+  puts "#{SAIR} - sair"
   puts '#' * 20
   puts
 end
@@ -23,7 +35,7 @@ end
 
 def mostrar_traducoes(traducoes)
  traducoes.each do |traducao|
-  traducao.imprime_traducao
+  traducao.imprimir
  end
 end
 
@@ -57,6 +69,20 @@ def achar_traducoes(lista_de_traducoes, lingua)
   mostrar_traducoes(traducoes_encontradas)
 end
 
+def adicionar_foto_traduzida(traducoes)
+  #Escreva a expressão em PT-BR
+  puts "Escreva a expressão em Portugues: "
+  texto_portugues = recebe_texto()
+  #Escreva a expressão em EN
+  puts "Escreva a expressão em Ingles: "
+  texto_ingles = recebe_texto()
+
+  puts "Adicione um link para a foto: "
+  link_foto = recebe_texto()
+
+  foto = FotoTraduzida.new(link_foto, texto_portugues, texto_ingles)
+  traducoes << foto
+end
 menu()
 
 opcao_escolhida = gets.to_i
@@ -64,19 +90,22 @@ opcao_escolhida = gets.to_i
 while opcao_escolhida != 0 do
 
   #Tomada de decisoes
-  if (opcao_escolhida == 1)
+  if (opcao_escolhida == ADICIONAR_TRADUCAO)
     adicionar_traducao(traducoes)
 
-  elsif (opcao_escolhida == 2)
+  elsif (opcao_escolhida == VER_TODAS_AS_TRADUCOES)
     mostrar_traducoes(traducoes)
 
-  elsif (opcao_escolhida == 3)
+  elsif (opcao_escolhida == BUSCAR_TRADUCAO_PT)
     # traducao de ingles para portugues
     achar_traducoes(traducoes, :ingles)
 
-  elsif (opcao_escolhida == 4)
+  elsif (opcao_escolhida == BUSCAR_TRADUCAO_EN)
     # traducao de portugues para ingles
     achar_traducoes(traducoes, :portugues)
+
+  elsif (opcao_escolhida == INSERIR_FOTO)
+    adicionar_foto_traduzida(traducoes)
   end
 
   menu()
