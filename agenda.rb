@@ -1,11 +1,8 @@
-require_relative('contato')
+require_relative 'foto'
 
 puts 'Bem vindo a agenda de contatos'
 
-contatos = [
-  Contato.new("Zibryulos", "98765432","zibryulos@example.com"),
-  Contato.new("Hamulas", "12345678","hamulas@example.com"),
-]
+contatos = []
 
 def menu()
   puts
@@ -15,6 +12,7 @@ def menu()
   puts '3- Buscar um contato por nome'
   puts '4- Buscar um contato por telefone'
   puts '5- Buscar um contato por email'
+  puts '6- Adicionar uma foto'
   puts  '0 - sair'
   puts
   puts
@@ -26,7 +24,7 @@ end
 
 def listar_contatos(contatos)
   contatos.each do |contato|
-    contato.mostrar
+    contato.imprimir
   end
 end
 
@@ -72,8 +70,23 @@ def adicionar_contato(contatos)
   contatos << contato
 end
 
-def nao_implementado()
-  puts "Opção não implementada ainda."
+def  adicionar_foto(contatos)
+  puts "Insira o link da foto"
+  link_foto = recebe_texto
+
+  puts "Escreva o nome do contato:"
+  nome = recebe_texto()
+
+  puts "Escreva o telefone do contato:"
+  telefone = recebe_texto()
+
+  puts "Escreva o email do contato:"
+  email = recebe_texto
+
+  foto = NovaFoto.new(link_foto, nome, telefone, email)
+  contatos << foto
+
+  puts "obrigada por inserir o link da foto"
 end
 
 menu()
@@ -83,7 +96,7 @@ opcao_escolhida = gets.to_i
 while opcao_escolhida != 0 do
   #Tomada de decisoes
   if (opcao_escolhida == 1)
-    adicionar_contato(contatos)
+    adicionar_contato(contatos )
 
   elsif (opcao_escolhida == 2)
     listar_contatos(contatos)
@@ -106,6 +119,11 @@ while opcao_escolhida != 0 do
     email = recebe_texto
 
     achar_contato_por_email(contatos, email)
+
+  elsif (opcao_escolhida == 6)
+
+    adicionar_foto(contatos)
+
   end
   menu()
   opcao_escolhida = gets.to_i
