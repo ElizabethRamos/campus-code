@@ -2,9 +2,9 @@
 class Traducao
 
   #atributos em ruby comecam com @
-  attr_accessor :texto_ingles
-  attr_reader :texto_portugues
-  attr_writer :texto_portugues
+  attr_accessor :texto_ingles, :texto_portugues - #permite leitura e mudanca dos atributos.
+  #attr_reader :texto_ingles, :texto_portugues - permite leitura, mas nao permite mudanca
+  #attr_writer :texto_ingles, :texto_portugues - permite mudar o atributo, mas nao permite leitura
 
   #construtor
   def initialize(texto_portugues, texto_ingles)
@@ -28,7 +28,7 @@ end
 
 
 #exemplos dos objetos da classe traducao
-#t = Traducao.new(texto_portugues, texto_ingles) 
+#t = Traducao.new(texto_portugues, texto_ingles)
 #t = Traducao.new("cachorro", "dog")
 #t1 = Traducao.new("amor", "love")
 #t2 = Traducao.new("mesa", "table")
