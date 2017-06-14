@@ -3,7 +3,7 @@ class Contato
     @nome = nome
     @telefone = telefone
     @email = email
-  end
+    end
 
   def mostrar()
     puts "Nome: #{@nome}\t telefone: #{@telefone}\t email: #{@email}"
@@ -20,4 +20,7 @@ class Contato
   def tem_esse_email?(email)
     @email.upcase.include? email.upcase
   end
+
+  #def tem_essa_foto?(foto)
+    #@foto.upcase.include? foto.upcase
 end
