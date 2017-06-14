@@ -25,3 +25,10 @@ class Traducao
     end
   end
 end
+
+
+#exemplos dos objetos da classe traducao
+#t = Traducao.new(texto_portugues, texto_ingles) 
+#t = Traducao.new("cachorro", "dog")
+#t1 = Traducao.new("amor", "love")
+#t2 = Traducao.new("mesa", "table")
