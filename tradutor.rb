@@ -39,7 +39,7 @@ def mostrar_traducoes(traducoes)
  end
 end
 
-def adicionar_traducao(traducoes)
+def adicionar_traducao(traducoes, tipo=:texto)
   #Escreva a expressão em PT-BR
   puts "Escreva a expressão em Portugues: "
   texto_portugues = recebe_texto()
@@ -48,11 +48,21 @@ def adicionar_traducao(traducoes)
   puts "Escreva a expressão em Ingles: "
   texto_ingles = recebe_texto()
 
-  #traducao = { portugues: texto_portugues, ingles: texto_ingles}
-  traducao = Traducao.new(texto_portugues, texto_ingles)
-  traducoes << traducao
+  if tipo == :texto
+    #traducao = { portugues: texto_portugues, ingles: texto_ingles}
+    traducao = Traducao.new(texto_portugues, texto_ingles)
+    traducoes << traducao
+
+  elsif tipo == :foto
+    puts "Adicione um link para a foto: "
+    link_foto = recebe_texto()
+
+    foto = FotoTraduzida.new(link_foto, texto_portugues, texto_ingles)
+    traducoes << foto
+  end
 
   puts 'Obrigada por inserir mais uma tradução :)'
+
 end
 
 
@@ -69,20 +79,7 @@ def achar_traducoes(lista_de_traducoes, lingua)
   mostrar_traducoes(traducoes_encontradas)
 end
 
-def adicionar_foto_traduzida(traducoes)
-  #Escreva a expressão em PT-BR
-  puts "Escreva a expressão em Portugues: "
-  texto_portugues = recebe_texto()
-  #Escreva a expressão em EN
-  puts "Escreva a expressão em Ingles: "
-  texto_ingles = recebe_texto()
 
-  puts "Adicione um link para a foto: "
-  link_foto = recebe_texto()
-
-  foto = FotoTraduzida.new(link_foto, texto_portugues, texto_ingles)
-  traducoes << foto
-end
 menu()
 
 opcao_escolhida = gets.to_i
@@ -105,7 +102,7 @@ while opcao_escolhida != 0 do
     achar_traducoes(traducoes, :portugues)
 
   elsif (opcao_escolhida == INSERIR_FOTO)
-    adicionar_foto_traduzida(traducoes)
+    adicionar_traducao(traducoes, :foto)
   end
 
   menu()
