@@ -13,7 +13,7 @@ class Traducao
   end
 
 #metodos - acoes - comportamentos
-  def imprime_traducao()
+  def imprimir()
     puts "Traducao de #{texto_portugues()} é #{texto_ingles()}"
   end
 
