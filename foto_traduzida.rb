@@ -13,3 +13,11 @@ class FotoTraduzida < Traducao
   end
 
 end
+
+
+#exemplos dos objetos da classe FotoTraduzida, que recebe os atributos da classe tradução:
+
+#t = FotoTraduzida.new(link_foto, texto_portugues, texto_ingles)
+#t1 = FotoTraduzida.new("cachorro.jpg", "cachorro correndo", "dog running")
+#t2 = FotoTraduzida.new("gatofofinho.jpg", "gato dorminhoco", "sleeping cat")
+#t3 = FotoTraduzida.new("paisagem.jpg", "paisagem da viagem", "travel landscape")
