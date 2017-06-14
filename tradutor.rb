@@ -21,6 +21,12 @@ def recebe_texto()
   gets.chomp
 end
 
+def mostrar_traducoes(traducoes)
+ traducoes.each do |traducao|
+  traducao.imprime_traducao
+ end
+end
+
 def adicionar_traducao(traducoes)
   #Escreva a expressão em PT-BR
   puts "Escreva a expressão em Portugues: "
@@ -37,18 +43,13 @@ def adicionar_traducao(traducoes)
   puts 'Obrigada por inserir mais uma tradução :)'
 end
 
-def mostrar_traducoes(traducoes)
-  traducoes.each do |traducao|
-    traducao.imprime_traducao
-  end
-end
 
-def achar_traducoes(traducoes, lingua)
+def achar_traducoes(lista_de_traducoes, lingua)
   puts "Informe a palavra que deseja procurar em #{lingua}: "
   texto_busca = recebe_texto()
 
-  traducoes_encontradas = traducoes.select do |traducao|
-    traducao.busca_texto(lingua, texto_busca)
+  traducoes_encontradas = lista_de_traducoes.select do |traducao|
+    traducao.busca_texto(texto_busca, lingua)
   end
 
   puts "Nenhuma tradução encontrada" if traducoes_encontradas.empty?
