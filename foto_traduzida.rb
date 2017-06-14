@@ -9,7 +9,7 @@ class FotoTraduzida < Traducao
   end
 
   def imprimir()
-    puts "Foto de #{link_foto()} #{texto_portugues()} é #{texto_ingles()}"
+    puts "Foto <#{link_foto()}>. Legenda em português: #{texto_portugues()}. Legenda em inglês: #{texto_ingles()}"
   end
 
 end
