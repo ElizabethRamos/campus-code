@@ -5,6 +5,6 @@
 <!--loop para achar cada tradução dentro da lista de traduções e print com a traducao em portgues e ingles./-->
 <ul>
 <% @traducoes.each do |traducao| %>
-  <li><%= traducao.portuguese %> - <%= traducao.english %>
+  <li>Tradução de <%= traducao.portuguese %> é <%= traducao.english %>
 <% end %>
 </ul>
