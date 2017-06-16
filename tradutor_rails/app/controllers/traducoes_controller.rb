@@ -4,4 +4,5 @@ class TraducoesController < ApplicationController
  end
 end
 
-#Adiciona a classe Traducoes.controller para a aplicação, evitando erro de "Uninitialized Constant".
+#Adiciona a classe Traducoes.controller para a aplicação. 
+#Herda a classe ApplicationController, ou seja, a classe que eu criei torna-se uma extensão da classe ApplicationController, que o rails considera como padrão
