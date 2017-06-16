@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
   get 'traducoes', to: 'traducoes#lista'
+#Neste arquivo da aplicação Rails eu digo quais rotas estão disponíveis para a aplicacao
+
+#get 'traducoes' ,  ---leve traducoes para ----- to: 'traducoes#lista'
+
+
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
