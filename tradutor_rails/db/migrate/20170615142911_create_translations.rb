@@ -1,6 +1,6 @@
-class CreateTraducoes < ActiveRecord::Migration
+class CreateTranslations < ActiveRecord::Migration
   def change
-    create_table :traducoes do |t|
+    create_table :translations do |t|
       t.string :portuguese
       t.string :english
 

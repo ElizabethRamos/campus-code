@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'traducoes', to: 'traducoes#lista'
+  get 'translation', to: 'translations#list'
+  #resources :translations
+end
 #Neste arquivo da aplicação Rails eu digo quais rotas estão disponíveis para a aplicacao
 
 #get 'traducoes' ,  ---leve traducoes para ----- to: 'traducoes#lista'
@@ -64,4 +66,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end

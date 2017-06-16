@@ -4,7 +4,7 @@
 
 <!--loop para achar cada tradução dentro da lista de traduções e print com a traducao em portgues e ingles./-->
 <ul>
-<% @traducoes.each do |traducao| %>
-  <li>Tradução de <%= traducao.portuguese %> é <%= traducao.english %>
+<% @translations.each do |t| %>
+  <li>Tradução de <%= t.portuguese %> é <%= t.english %>
 <% end %>
 </ul>

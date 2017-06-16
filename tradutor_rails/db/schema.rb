@@ -13,14 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20170615142911) do
 
-  create_table "cards", force: true do |t|
-    t.string   "portuguese"
-    t.string   "english"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "traducoes", force: true do |t|
+  create_table "translations", force: true do |t|
     t.string   "portuguese"
     t.string   "english"
     t.datetime "created_at"
