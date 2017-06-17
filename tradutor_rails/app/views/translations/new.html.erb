@@ -1,0 +1,15 @@
+<%= form_for :translation do |f| %>
+  <p>
+    <%= f.label :portuguese %><br>
+    <%= f.text_field :portuguese %>
+  </p>
+
+  <p>
+    <%= f.label :english %><br>
+    <%= f.text_field :english %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
