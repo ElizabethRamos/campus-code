@@ -3,14 +3,13 @@
 
 class TranslationsController < ApplicationController
   #Define o método lista e define todas as traducoes encontradas em lista
- def list
+
+  def list
    #translation1 = Translation.new(portuguese: "mesa", english: "table")
    #translation2 = Translation.new(portuguese: "passarinho", english: "bird")
+     @translations = Translation.all
+  end
 
-   @translations = Translation.all
+  def new
+  end
  end
-
- def new
-
- end
-end
