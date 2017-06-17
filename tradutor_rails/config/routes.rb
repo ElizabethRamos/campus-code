@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'translation', to: 'translations#list'
+  get 'new_translation', to: 'translations#new'
   #resources :translations
 end
 #Neste arquivo da aplicação Rails eu digo quais rotas estão disponíveis para a aplicacao
