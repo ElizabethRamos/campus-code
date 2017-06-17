@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root to:'translations#list'
   get 'translation', to: 'translations#list'
   get 'new_translation', to: 'translations#new'
   #resources :translations
