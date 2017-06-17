@@ -1,4 +1,5 @@
-<%= form_for :translation do |f| %>
+<%= form_for :translation, url: translations_path do |f| %>
+
   <p>
     <%= f.label :portuguese %><br>
     <%= f.text_field :portuguese %>
