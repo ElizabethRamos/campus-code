@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'translation/:id/edit', to:'translations#edit', as: 'edit_translation'
   patch 'translation/:id', to:'translations#update'
   put 'translation/:id', to:'translations#update'
+  delete 'translation/:id', to: 'translations#destroy'
   #resources :translations
 end
 #Neste arquivo da aplicação Rails eu digo quais rotas estão disponíveis para a aplicacao
