@@ -38,7 +38,13 @@ class TranslationsController < ApplicationController
       render 'edit'
     end
   end
-  
+
+  def destroy
+     @translation = Translation.find(params[:id])
+     @translation.destroy
+
+     redirect_to translations_path
+   end
   private
     def translation_params
       params.require(:translation).permit(:portuguese, :english)
