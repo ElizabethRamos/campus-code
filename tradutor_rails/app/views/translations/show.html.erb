@@ -6,4 +6,9 @@
 <%= link_to 'Editar', edit_translation_path(@tr) %>
 
 </br />
+
 <%= link_to 'Voltar', root_path %>
+
+<%= link_to 'Apagar', translation_path(@tr),
+            method: :delete,
+            data: { confirm: 'Tem certeza que deseja deletar?' } %>
