@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
 
-  root to:'translations#list'
-  get 'translations', to: 'translations#list'
-  get 'translation/:id', to: 'translations#show', as: 'translation'
-  get 'new_translation', to: 'translations#new'
-  post 'translations', to: 'translations#create'
-  get 'translation/:id/edit', to:'translations#edit', as: 'edit_translation'
-  patch 'translation/:id', to:'translations#update'
-  put 'translation/:id', to:'translations#update'
-  delete 'translation/:id', to: 'translations#destroy'
+  root to:'translations#index'
+  resources :translations
+
+
+
+  #get 'translations', to: 'translations#list'
+  #get 'translation/:id', to: 'translations#show', as: 'translation'
+  #get 'new_translation', to: 'translations#new'
+  #post 'translations', to: 'translations#create'
+  #get 'translation/:id/edit', to:'translations#edit', as: 'edit_translation'
+  #patch 'translation/:id', to:'translations#update'
+  #put 'translation/:id', to:'translations#update'
+  #delete 'translation/:id', to: 'translations#destroy'
   #resources :translations
 end
 #Neste arquivo da aplicação Rails eu digo quais rotas estão disponíveis para a aplicacao
