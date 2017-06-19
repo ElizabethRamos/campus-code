@@ -5,7 +5,7 @@
 <!--loop para achar cada tradução dentro da lista de traduções e print com a traducao em portgues e ingles./-->
 <ul>
 <% @translations.each do |t| %>
-  <li><a href ="/translation/<%= t.id %>"><%= t.portuguese %></a></li>
+  <li><a href ="/translations/<%= t.id %>"><%= t.portuguese %></a></li>
 <% end %>
 </ul>
 
