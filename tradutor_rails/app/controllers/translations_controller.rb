@@ -10,14 +10,6 @@ class TranslationsController < ApplicationController
      @translations = Translation.all
   end
 
-  def new
-  end
-
-  def show
-    id = params[:id]
-    @tr = Translation.find(id)
-  end
-
   def create
     @translation = Translation.new(translation_params)
 
@@ -25,8 +17,16 @@ class TranslationsController < ApplicationController
     redirect_to @translation
   end
 
+  def new
+  end
+
   def edit
     @translation = Translation.find(params[:id])
+  end
+
+  def show
+    id = params[:id]
+    @translation = Translation.find(id)
   end
 
   def update
@@ -45,6 +45,7 @@ class TranslationsController < ApplicationController
 
      redirect_to translations_path
    end
+
   private
     def translation_params
       params.require(:translation).permit(:portuguese, :english)
