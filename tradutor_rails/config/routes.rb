@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root to:'translations#index'
   resources :translations
+  resources :translation_requests, only: [:new, :create]
 
 
 
