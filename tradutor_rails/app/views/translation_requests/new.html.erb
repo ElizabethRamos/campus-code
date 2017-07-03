@@ -1,7 +1,10 @@
-<%= form_for :translation_requests, url: translation_requests_path do |f| %>
+<%= form_for @translation_request do |f| %>
 
   <p>
-    <%= f.label  %><br>
-    <%= f.text_field  %>
+    <%= f.label :text, 'Texto' %><br>
+    <%= f.text_field :text %>
   </p>
+
+<%= f.submit 'Enviar' %>
+
 <% end %>
