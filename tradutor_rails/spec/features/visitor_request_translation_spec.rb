@@ -9,7 +9,7 @@ feature 'Visitor request translation' do
     fill_in 'Texto', with: 'Cafeteira'
     click_on 'Enviar'
 
-    expect(page).to have_content('Solicitação de tradução para Cafeteira')
+    expect(page).to have_content('Solicitação de tradução efetuada')
 
   end
 end
