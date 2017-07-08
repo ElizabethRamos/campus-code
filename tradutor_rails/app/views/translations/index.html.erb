@@ -2,7 +2,8 @@
 
 <h1>Lista de Termos traduzidos </h1>
 
-<%= link_to('Solicitar tradução', new_translation_request_path) %>
+<%= link_to 'Solicitar tradução', new_translation_request_path %>
+<%= link_to 'Enviar uma tradução', new_translation_path %>
 
 <!--loop para achar cada tradução dentro da lista de traduções e print com a traducao em portgues e ingles./-->
 <% if @translations.empty? %>

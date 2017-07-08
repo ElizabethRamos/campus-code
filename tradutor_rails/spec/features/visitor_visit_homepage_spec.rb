@@ -23,4 +23,21 @@ end
     expect(page). to have_content('Nao existem traducoes ainda')
 
   end
-end
+
+  scenario 'and visitor create a translation' do
+
+    translation = Translation.new(portuguese: 'Gato',
+                                  english: 'Cat')
+    translation.save
+    
+      visit root_path
+
+      click_on 'Enviar uma tradução'
+      fill_in 'Portugues', with: 'Gato'
+      fill_in 'Ingles', with: 'Cat'
+      click_on 'Enviar'
+
+      expect(page).to have_content('Tradução de Gato A tradução é: Cat')
+
+      end
+  end

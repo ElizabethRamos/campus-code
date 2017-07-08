@@ -10,6 +10,7 @@ feature 'Visitor request translation' do
     click_on 'Enviar'
 
     expect(page).to have_content('Solicitação de tradução efetuada')
+    expect(page).to have_link('Voltar')
 
   end
 end

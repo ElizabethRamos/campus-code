@@ -1,16 +1,16 @@
 <%= form_for :translation, url: translations_path do |f| %>
 
   <p>
-    <%= f.label :portuguese %><br>
-    <%= f.text_field :portuguese %>
-  </p>
-
-  <p>
-    <%= f.label :english %><br>
+    <%= f.label :english, 'Ingles' %><br>
     <%= f.text_field :english %>
   </p>
 
   <p>
-    <%= f.submit %>
+    <%= f.label :portuguese, 'Portugues' %><br>
+    <%= f.text_field :portuguese %>
+  </p>
+
+  <p>
+    <%= f.submit 'Enviar'%>
   </p>
 <% end %>

@@ -6,14 +6,16 @@ class TranslationsController < ApplicationController
      @translations = Translation.all
   end
 
+   def new
+    @translation = Translation.new
+  end
+
   def create
+
     @translation = Translation.new(translation_params)
 
     @translation.save
     redirect_to @translation
-  end
-
-  def new
   end
 
   def edit
