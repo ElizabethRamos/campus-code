@@ -1,12 +1,8 @@
-#Adiciona a classe Traducoes.controller para a aplicação.
-#Herda a classe ApplicationController, ou seja, a classe que eu criei torna-se uma extensão da classe ApplicationController, que o rails considera como padrão
-
 class TranslationsController < ApplicationController
-  #Define o método lista e define todas as traducoes encontradas em lista
+  before_action :find_translation, only: [:show, :edit, :update, :destroy]
+  
 
   def index
-   #translation1 = Translation.new(portuguese: "mesa", english: "table")
-   #translation2 = Translation.new(portuguese: "passarinho", english: "bird")
      @translations = Translation.all
   end
 
@@ -21,16 +17,12 @@ class TranslationsController < ApplicationController
   end
 
   def edit
-    @translation = Translation.find(params[:id])
   end
 
   def show
-    id = params[:id]
-    @translation = Translation.find(id)
   end
 
   def update
-    @translation = Translation.find(params[:id])
 
     if @translation.update(translation_params)
       redirect_to @translation
@@ -40,7 +32,6 @@ class TranslationsController < ApplicationController
   end
 
   def destroy
-     @translation = Translation.find(params[:id])
      @translation.destroy
 
      redirect_to translations_path
@@ -49,5 +40,9 @@ class TranslationsController < ApplicationController
   private
     def translation_params
       params.require(:translation).permit(:portuguese, :english)
+    end
+
+    def find_translation
+      @translation = Translation.find(params[:id])
     end
 end
